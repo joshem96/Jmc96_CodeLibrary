@@ -121,16 +121,16 @@
             
                 //if string only contains 1 character
                 if(string.length === 1){
-                special = string[i];
+                    special = string[i];
                 }
                 //first iteration of item itself
                 if ( (item === currentChar[0] || item === currentChar[1]) && counter < 2){
-                counter++ 
-                bingo = item;
+                    counter++ 
+                    bingo = item;
                     if ((string.lastIndexOf(currentChar[0]) + string.lastIndexOf(lastItem[0])+2==string.length*2 && i === string.length-1 || string.lastIndexOf(currentChar[1]) + string.lastIndexOf(lastItem[1])+2==string.length*2 && i === string.length-1)){
-                    if (counter === 2 && bingo != 0 && special == ""){
-                        special = bingo;
-                    }
+                        if (counter === 2 && bingo != 0 && special == ""){
+                            special = bingo;
+                        }
                     }    
                 }
                 //if item is repeated more than once
@@ -141,9 +141,9 @@
                 }
                 //if at last item in array
                 else if ((string.lastIndexOf(currentChar[0]) + string.lastIndexOf(lastItem[0])+2==string.length*2 && i === string.length-1 || string.lastIndexOf(currentChar[1]) + string.lastIndexOf(lastItem[1])+2==string.length*2 && i === string.length-1)){ 
-                if (counter === 2 && bingo != 0 && special == ""){ 
-                    special = bingo;
-                }
+                    if (counter === 2 && bingo != 0 && special == ""){ 
+                        special = bingo;
+                    }
                 }   
             }
             });
