@@ -95,3 +95,58 @@
         
         return reversedString;
     }
+
+//FIND THE FIRST NON-REPEATING CHARACTER
+//....................................................
+    //if all characters are the same return ""
+    //both capital and lower case letters are considered equal
+    function firstNonRepeatingLetter(string){
+        string = string.split("");
+        var bingo = 0;
+        var counter = 1;
+        var special = "";
+        
+        //if every item in array is the same
+        if (string.every( (val, i, arr) => val === arr[0] === true && string.length > 1)){
+            special = ""
+        }
+        else{
+            string.forEach( (item) => { 
+                counter = 1;
+        
+            for (var i = 0; i < string.length; i++){ 
+                var lastItem = string.slice(-1)[0];
+                lastItem = [lastItem.toUpperCase(),lastItem.toLowerCase()];
+                var currentChar = [string[i].toUpperCase(),string[i].toLowerCase()];
+            
+                //if string only contains 1 character
+                if(string.length === 1){
+                special = string[i];
+                }
+                //first iteration of item itself
+                if ( (item === currentChar[0] || item === currentChar[1]) && counter < 2){
+                counter++ 
+                bingo = item;
+                    if ((string.lastIndexOf(currentChar[0]) + string.lastIndexOf(lastItem[0])+2==string.length*2 && i === string.length-1 || string.lastIndexOf(currentChar[1]) + string.lastIndexOf(lastItem[1])+2==string.length*2 && i === string.length-1)){
+                    if (counter === 2 && bingo != 0 && special == ""){
+                        special = bingo;
+                    }
+                    }    
+                }
+                //if item is repeated more than once
+                else if (item === currentChar[0] || item === currentChar[1] && counter >= 2) {
+                    counter++
+                    bingo = 0;
+                    break;
+                }
+                //if at last item in array
+                else if ((string.lastIndexOf(currentChar[0]) + string.lastIndexOf(lastItem[0])+2==string.length*2 && i === string.length-1 || string.lastIndexOf(currentChar[1]) + string.lastIndexOf(lastItem[1])+2==string.length*2 && i === string.length-1)){ 
+                if (counter === 2 && bingo != 0 && special == ""){ 
+                    special = bingo;
+                }
+                }   
+            }
+            });
+        }
+        return special;
+    }
