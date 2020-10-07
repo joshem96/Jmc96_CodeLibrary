@@ -150,3 +150,22 @@
         }
         return special;
     }
+
+//MAKE THE MEXICAN WAVE WITH A sTrInG iNpUt
+//................................................................
+function wave(str){
+
+    waveArray =[];
+    var splitString = str.split("");
+
+        for (var i = 0; i < splitString.length; i++){
+            if(splitString[i].toUpperCase() != splitString[i].toLowerCase() ){
+                var thisSplitString = str.split(""); //
+                var currentString = thisSplitString[i].toUpperCase().toString(); //turn letter into upcase then convert to string
+                thisSplitString[i] = currentString //replace relevant letter with capitalised letter
+                waveArray.push(thisSplitString.join("")); // push new instance of string to waveArray
+            }
+        }
+
+    return waveArray;
+}
