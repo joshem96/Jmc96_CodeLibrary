@@ -1,4 +1,4 @@
-//this function returns the current year (eg '2022') as iether a string or number - depending on the argument provided
+//this function returns the current year (eg '2022') as either a string or number - depending on the argument provided
 
 
 function currentYear(valueType = "string"){
